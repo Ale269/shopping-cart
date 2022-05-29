@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  position: fixed;
+}
+
+nav ul {
+  display: flex;
+  padding: 40px;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.home-container {
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-container button {
+  padding: 10px;
+  position: relative;
+  width: 200px;
+  outline: none;
+  border: none;
+  background-color: red;
+  z-index: 2;
+}
+
+.home-container button::before {
+  content: " ";
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+  outline: none;
+  border: none;
+  background-color: green;
+  width: 200px;
+}
