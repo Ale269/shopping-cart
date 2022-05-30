@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import Navigation from "./components/Navigation";
+import SearchComponent from "./components/SearchMode";
 
 function App() {
   const [searchMode, setSearchMode] = useState<boolean>(false);
-
-  const handleSearch = () => {
-    setSearchMode(!searchMode);
-  };
 
   useEffect(() => {
     let body = document.querySelector("body")!;
@@ -21,34 +21,18 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <ul>
-          <li>
-            <a>Home</a>
-          </li>
-          <li>
-            <a>Shop</a>
-          </li>
-          <li>
-            <a
-              onClick={() => {
-                setSearchMode(!searchMode);
-              }}
-            >
-              Search
-            </a>
-          </li>
-          <li>
-            <a>Cart</a>
-          </li>
-        </ul>
-      </nav>
+      <Navigation setSearchMode={setSearchMode} searchMode={searchMode} />
       <Routes>
-        <Route
-          path="/"
-          element={<Home searchMode={searchMode} setSearch={handleSearch} />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
+      {searchMode && (
+        <SearchComponent
+          searchMode={searchMode}
+          setSearchMode={setSearchMode}
+        />
+      )}
     </Router>
   );
 }
