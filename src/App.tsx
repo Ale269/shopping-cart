@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import Home from "./pages/home";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
+  const [searchMode, setSearchMode] = useState<boolean>(false);
+
+  const handleSearch = () => {
+    setSearchMode(!searchMode);
+  };
+
+  useEffect(() => {
+    let body = document.querySelector("body")!;
+    if (searchMode === true) {
+      body.setAttribute("class", "no-scroll");
+    } else {
+      body.setAttribute("class", "");
+    }
+  }, [searchMode]);
+
   return (
     <Router>
       <nav>
@@ -16,7 +30,13 @@ function App() {
             <a>Shop</a>
           </li>
           <li>
-            <a>Search</a>
+            <a
+              onClick={() => {
+                setSearchMode(!searchMode);
+              }}
+            >
+              Search
+            </a>
           </li>
           <li>
             <a>Cart</a>
@@ -24,7 +44,10 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home searchMode={searchMode} setSearch={handleSearch} />}
+        />
       </Routes>
     </Router>
   );
