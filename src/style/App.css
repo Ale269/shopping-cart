@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: rgb(10, 9, 9);
+  background: linear-gradient(
+    90deg,
+    rgba(10, 9, 9, 1) 0%,
+    rgba(0, 8, 36, 1) 100%
+  );
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+nav {
+  width: 1000px;
+  position: fixed;
+  top: 50px;
+  left: 70px;
+}
+
+.home-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 60px;
+  height: 100vh;
+}
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-section h1 {
+  font-family: "Tiro Tamil", serif;
+  font-size: 60px;
+  color: #ede7e3;
+}
+
+.hero-section h3 {
+  font-weight: 300;
+  font-size: 20px;
+  color: #ede7e3;
+  margin-bottom: 30px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav a {
+  margin-right: 100px;
+  font-weight: 300;
+  cursor: pointer;
+  color: #ede7e3;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+}
+
+nav .active {
+  color: #fca510;
+}
+
+nav a:hover {
+  color: #fca510;
+  transition: ease-in-out 0.2s;
+}
+
+button {
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  outline: none;
+  background-color: #fca510;
+  height: 45px;
+  width: 200px;
+  cursor: pointer;
+}
+
+button::after {
+  border: 2px solid #fca510;
+  z-index: -1;
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+  height: 43px;
+  width: 197px;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover::after {
+  top: 3px;
+  left: 3px;
+  transition: 0.2s ease-in-out;
+}
+
+.search-section {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.search-bar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border: 2px solid #fca510;
+  display: flex;
+}
+
+.search-bar input {
+  outline: none;
+  padding: 0 0 0 10px;
+  font-size: 20px;
+  border: none;
+  height: 50px;
+  width: 300px;
+  background-color: #fff;
+  margin-right: 20px;
+}
+
+.search-bar button {
+  padding: 10px;
+  position: relative;
+  background-color: #fca510;
+  color: rgb(10, 9, 9);
+  height: 50px;
+  width: 50px;
+}
+
+.search-bar button::after {
+  height: 47px;
+  width: 47px;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(10, 9, 9);
+  opacity: 0.97;
+}
+
+.img-section {
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-section img {
+  width: 100%;
+}

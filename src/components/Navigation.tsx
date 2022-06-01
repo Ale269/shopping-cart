@@ -6,50 +6,80 @@ interface Props {
   setSearchMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface NavSelection {
+  home: boolean;
+  shop: boolean;
+}
+
 const Navigation: React.FC<Props> = (props) => {
   const [isCart, setIsCart] = useState<boolean>(false);
+  const [selected, setSelected] = useState<NavSelection>({
+    home: true,
+    shop: false,
+  });
 
   const result = isCart ? (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/shop">Shop</Link>
-        </li>
-        <li>
-          <a
-            onClick={() => {
-              props.setSearchMode(!props.searchMode);
-            }}
-          >
-            Search
-          </a>
-        </li>
-        <li>
-          <Link
-            to="/cart"
-            onClick={() => {
-              setIsCart(!isCart);
-            }}
-          >
-            Cart
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <Link
+          to="/"
+          onClick={() => {
+            setIsCart(!isCart);
+            setSelected({ home: true, shop: false });
+          }}
+        >
+          back
+        </Link>
+      </nav>
+    </header>
   ) : (
-    <nav>
-      <Link
-        to="/"
-        onClick={() => {
-          setIsCart(!isCart);
-        }}
-      >
-        back
-      </Link>
-    </nav>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <Link
+              to="/"
+              onClick={() => {
+                setSelected({ home: true, shop: false });
+              }}
+              className={selected.home ? "active" : ""}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/shop"
+              onClick={() => {
+                setSelected({ home: false, shop: true });
+              }}
+              className={selected.shop ? "active" : ""}
+            >
+              Shop
+            </Link>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                props.setSearchMode(!props.searchMode);
+              }}
+            >
+              Search
+            </a>
+          </li>
+          <li>
+            <Link
+              to="/cart"
+              onClick={() => {
+                setIsCart(!isCart);
+              }}
+            >
+              Cart
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
   return result;
 };
