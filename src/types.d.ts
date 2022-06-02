@@ -3,7 +3,7 @@ declare module "*.png" {
   export = value;
 }
 
-declare module "*.jpe" {
+declare module "*.jpg" {
   const value: any;
   export = value;
 }
