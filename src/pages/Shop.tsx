@@ -20,9 +20,16 @@ const Shop: React.FC = () => {
       <div className="poster-container">
         <img src={element.src} alt={element.name} />
         <h4>{element.name}</h4>
+        <h4>€{element.price}</h4>
         <button
           onClick={() => {
-            dispatch(addToCart(element.name));
+            dispatch(
+              addToCart({
+                name: element.name,
+                img: element.src,
+                price: element.price,
+              })
+            );
           }}
         >
           Add to cart
