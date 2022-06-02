@@ -9,7 +9,12 @@ import pattern from "../img/pattern.jpg";
 import sand from "../img/sand.jpg";
 import sea from "../img/sea.jpg";
 
-const posterArray = [
+interface posterObj {
+  name: string;
+  src: any;
+}
+
+const posterArray: posterObj[] = [
   { name: "Lego brick poster", src: brick },
   { name: "Mountain travel poster", src: car },
   { name: "City view poster", src: city },

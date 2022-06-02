@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style/App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -21,10 +22,31 @@ function App() {
 
   return (
     <Router>
-      <Navigation setSearchMode={setSearchMode} searchMode={searchMode} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Navigation
+                searchMode={searchMode}
+                setSearchMode={setSearchMode}
+              />
+              <Home />
+            </>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <>
+              <Navigation
+                searchMode={searchMode}
+                setSearchMode={setSearchMode}
+              />
+              <Shop />
+            </>
+          }
+        />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       {searchMode && (

@@ -1,7 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { reduceEachLeadingCommentRange } from "typescript";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface CartState {
+  value: { name: string; quantity: number }[];
+}
+
+const initialState: CartState = {
   value: [],
 };
 
@@ -9,8 +12,15 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    add: () => {},
+    addToCart: (state, action: PayloadAction<string>) => {
+      state.value.push({
+        name: action.payload,
+        quantity: 0,
+      });
+    },
   },
 });
+
+export const { addToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
