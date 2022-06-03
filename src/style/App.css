@@ -305,7 +305,7 @@ h4 {
   }
 
   .hero-section {
-    margin-top: 200px;
+    margin-top: 500px;
     text-align: center;
     align-items: center;
     margin-bottom: 40px;
@@ -360,6 +360,13 @@ h4 {
 }
 
 @media screen and (max-width: 570px) {
+  .hero-section {
+    margin-top: 200px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
   .cart-items-container {
     display: flex;
     flex-direction: column;
