@@ -11,7 +11,6 @@ const SearchComponent: React.FC<Props> = (props) => {
       <div
         className="overlay"
         onClick={(e) => {
-          console.log(e.target);
           props.setSearchMode(!props.searchMode);
         }}
       >

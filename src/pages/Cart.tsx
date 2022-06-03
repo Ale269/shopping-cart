@@ -19,10 +19,21 @@ const Cart: React.FC = () => {
 
   const [cartDisplay, setCartDisplay] = useState<cartElementType[]>(cartList);
 
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     setCartDisplay(cartList);
+    setTotalPrice(() => {
+      let sum: number = 0;
+
+      cartList.forEach((element) => {
+        sum += element.price * element.quantity;
+      });
+
+      return sum;
+    });
   }, [cartList]);
 
   const displayList = cartDisplay.map((element: cartElementType) => {
@@ -36,7 +47,7 @@ const Cart: React.FC = () => {
               dispatch(increaseNumber(element.name));
             }}
           >
-            +1
+            +
           </button>
           <h4>
             €
@@ -49,7 +60,7 @@ const Cart: React.FC = () => {
               dispatch(decreaseNumber(element.name));
             }}
           >
-            -1
+            -
           </button>
         </div>
       </div>
@@ -59,6 +70,9 @@ const Cart: React.FC = () => {
     <div>
       <NavigationTwo />
       <h1 className="cart-page-title">Cart</h1>
+      <h3 className="total-price">
+        €{(Math.round(totalPrice * 100) / 100).toFixed(2)}
+      </h3>
       <div className="cart-items-container">{displayList}</div>
     </div>
   );

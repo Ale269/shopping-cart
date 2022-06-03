@@ -11,10 +11,6 @@ const Shop: React.FC = () => {
     return state.cart.value;
   });
 
-  useEffect(() => {
-    console.log(cartList);
-  }, [cartList]);
-
   const displayPoster: JSX.Element[] = posterArray.map((element) => {
     return (
       <div className="poster-container">
