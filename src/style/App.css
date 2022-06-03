@@ -23,7 +23,7 @@ nav {
   position: fixed;
   top: 50px;
   left: 70px;
-  z-index: 99;
+  z-index: 2;
 }
 
 .home-container {
@@ -59,12 +59,18 @@ nav ul {
 }
 
 nav a {
-  margin-right: 100px;
+  margin-right: 10px;
   font-weight: 300;
   cursor: pointer;
   color: #ede7e3;
   text-decoration: none;
   transition: ease-in-out 0.2s;
+}
+
+nav li {
+  display: flex;
+  margin-right: 100px;
+  color: #ede7e3;
 }
 
 nav .active {
@@ -114,6 +120,7 @@ button:hover::after {
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 10;
 }
 
 .search-bar {
@@ -209,4 +216,67 @@ button:hover::after {
 
 .poster-container button::after {
   width: 100%;
+}
+
+.cart-items-number {
+  color: #fca510;
+  font-weight: 500;
+}
+
+.cart-page-title {
+  max-width: 1000px;
+  margin: 200px auto 0 auto;
+  padding: 0 60px;
+  font-size: 50px;
+  font-family: "Tiro Tamil", serif;
+  color: #ede7e3;
+}
+
+.cart-items-container {
+  padding: 0 60px 60px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 100px;
+  margin-top: 80px;
+}
+
+.short-buy-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item h3,
+h4 {
+  color: #ede7e3;
+  font-weight: 300;
+}
+
+.cart-item h3 {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  font-size: 20px;
+  color: #ede7e3;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cart-item button {
+  width: 140px;
+  margin-bottom: 10px;
+}
+
+.cart-item button::after {
+  width: 140px;
+  margin-bottom: 10px;
 }

@@ -1,4 +1,7 @@
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 interface Props {
   searchMode: boolean;
@@ -6,6 +9,21 @@ interface Props {
 }
 
 const Navigation: React.FC<Props> = (props) => {
+  const cartList = useSelector((state: RootState) => {
+    return state.cart.value;
+  });
+
+  const [cartNumber, setCartNumber] = useState<number>(0);
+
+  useEffect(() => {
+    let cartValue = 0;
+
+    const initialNumber = cartList.forEach((element) => {
+      cartValue += element.quantity;
+    });
+    setCartNumber(cartValue);
+  }, [cartList]);
+
   return (
     <header>
       <nav>
@@ -29,6 +47,7 @@ const Navigation: React.FC<Props> = (props) => {
             <NavLink to="/cart">
               <i className="fa-solid fa-cart-shopping"></i>
             </NavLink>
+            <div className="cart-items-number">{cartNumber}</div>
           </li>
         </ul>
       </nav>

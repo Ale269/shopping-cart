@@ -4,7 +4,9 @@ const NavigationTwo: React.FC = () => {
   return (
     <header>
       <nav>
-        <NavLink to="/">back</NavLink>
+        <NavLink to="/">
+          <i className="fa-solid fa-angle-left"></i> back
+        </NavLink>
       </nav>
     </header>
   );
