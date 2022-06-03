@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         </button>
       </div>
       <div className="img-section">
-        <img src={homePhoto} alt="photo-home" />
+        <img src={homePhoto} alt="home" />
       </div>
     </div>
   );
